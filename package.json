@@ -1,0 +1,25 @@
+{
+  "name": "compress-image-cli",
+  "version": "1.0.0",
+  "description": "压缩图片命令行工具",
+  "scripts": {
+    "start": "node .bin/index.js"
+  },
+  "bin": {
+    "pi": ".bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:TreeZhou/compress-image-cli.git"
+  },
+  "author": "527533739@qq.com",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^5.0.0",
+    "fs": "^0.0.1-security",
+    "imagemin": "^7.0.1",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-pngquant": "^8.0.0"
+  }
+}

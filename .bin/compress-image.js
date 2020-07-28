@@ -3,6 +3,7 @@ const imageminPngquant = require('imagemin-pngquant');
 const mozjpeg = require('imagemin-mozjpeg');
 const chalk = require('chalk');
 const getFilesAndDirectorys = require('./getFilesAndDirectorys');
+const path = require('path');
 
 //? path配置参考[https://github.com/sindresorhus/globby#globbing-patterns]
 module.exports = function compress({ folder, quality = '0.6,0.8' }) {
@@ -11,7 +12,11 @@ module.exports = function compress({ folder, quality = '0.6,0.8' }) {
   let { directorys } = getFilesAndDirectorys(folder);
   const readonlyArray = directorys.length > 0 ? directorys : [folder];
   readonlyArray.forEach(element => {
-    imagemin([element + '/*.{jpg,png}'], {
+    let filePath = path.resolve(path.resolve(element), './*.{jpg,png}');
+    filePath = filePath.includes('\\')
+      ? filePath.replace(/\\/g, '/')
+      : filePath;
+    imagemin([filePath], {
       destination: element,
       plugins: [
         mozjpeg(),

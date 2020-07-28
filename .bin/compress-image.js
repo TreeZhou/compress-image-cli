@@ -6,7 +6,7 @@ const getFilesAndDirectorys = require('./getFilesAndDirectorys');
 const path = require('path');
 
 //? path配置参考[https://github.com/sindresorhus/globby#globbing-patterns]
-module.exports = function compress({ folder, quality = '0.6,0.6' }) {
+module.exports = function compress({ folder, quality = '0.6,0.8' }) {
   quality = [Number(quality.split(',')[0]), Number(quality.split(',')[1])];
   console.log(quality);
   let { directorys } = getFilesAndDirectorys(folder);

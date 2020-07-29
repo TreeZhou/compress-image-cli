@@ -19,7 +19,7 @@ module.exports = function compress({ folder, quality = '0.6,0.8' }) {
     imagemin([filePath], {
       destination: element,
       plugins: [
-        mozjpeg(),
+        mozjpeg({ quality: 75, progressive: false }),
         imageminPngquant({
           quality
         })
